@@ -1,0 +1,6 @@
+<h1>{{vm.title}}</h1>
+<ul>
+    <li ng-repeat="fidget in vm.fidgets | orderBy:'title'">
+        <a ng-href="#fidget/{{fidget._id}}">{{fidget.title}}</a>
+    </li>
+</ul>
