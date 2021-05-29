@@ -1,0 +1,49 @@
+<h1>Info about job : {{vm.job.title | uppercase}}</h1>
+
+<p>
+   Salary: {{vm.job.salary | currency}}<br/>
+   Description:  {{vm.job.description}}<br/>
+   Experience:  {{vm.job.experience}}<br/>
+   Skills:  {{vm.job.skills}}<br/>
+    postDate: {{vm.job.postDate | date}}<br/>
+   Location: Street: {{vm.job.location.street}} zipCode: {{vm.job.location.zipCode}}
+</p>
+<input type="checkbox" ng-model="showDeleteButton"> Wants to delete this job <br/>
+<input type="checkbox" ng-model="updateForm"> Wants to update this job<br/>
+<input type="checkbox" ng-model="partialUpdateForm"> Wants to partial update this job<br/>
+<form name="vm.deleteForm" ng-submit="vm.deleteOneJob()" ng-if="showDeleteButton">
+    <button type="submit" >Delete Job</button>
+</form>
+
+<p>
+    <form name="vm.updateJobForm" ng-submit="vm.updateOneJob()" ng-if="updateForm">
+    To update the job opening :<br/>
+  
+<!-- Title: <input type="text" name="title" required ng-model="vm.editedJobTitle"><br/> -->
+Salary: <input type="text" name="salary" required ng-model="vm.editedJobSalary"><br/>
+Description: <input type="text" name= "description" ng-model="vm.editedJobDescription"><br/>
+Experience: <input type="text" name="experience" ng-model="vm.editedJobExperience"><br/>
+Skills: <input type="text" name="skills" ng-model="vm.editedJobSkills"><br/>
+Location Street : <input type="text" name="street" ng-model="vm.editedJobStreet">
+zipCode : <input type="text" name="zipCode" ng-model="vm.editedJobzipCode"><br/>
+<!-- postDate: <input type="text" name="postDate" ng-model="vm.editedPostDate"><br/> -->
+<button type="submit" class="brn-success">Update Job</button><br/>
+
+</form>
+</p><br/></br>
+<p>
+    <form name="vm.partialUpdate" ng-submit="vm.partialUpdateJob()" ng-if="partialUpdateForm">
+    To update the job opening :<br/>
+  
+<!-- Title: <input type="text" name="title" required ng-model="vm.editedJobTitle"><br/> -->
+Salary: <input type="text" name="salary" required ng-model="vm.editedJobSalary"><br/>
+<!-- Description: <input type="text" name= "description" ng-model="vm.editedJobDescription"><br/> -->
+<!-- Experience: <input type="text" name="experience" ng-model="vm.editedJobExperience"><br/> -->
+Skills: <input type="text" name="skills" ng-model="vm.editedJobSkills"><br/>
+<!-- Location Street : <input type="text" name="street" ng-model="vm.editedJobStreet"> -->
+<!-- zipCode : <input type="text" name="zipCode" ng-model="vm.editedJobzipCode"><br/> -->
+<!-- postDate: <input type="text" name="postDate" ng-model="vm.editedPostDate"><br/> -->
+<button type="submit" class="brn-success">Partial Update</button><br/>
+
+</form>
+</p>

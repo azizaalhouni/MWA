@@ -1,0 +1,26 @@
+<h1>
+    
+    {{vm.title}}
+</h1>
+<ul>
+    <li ng-repeat="job in vm.jobs">
+        <a ng-href="#jobs/{{job._id}}">{{job.title}}</a>
+    </li>
+</ul>
+<input type="checkbox" ng-model="showForm"> Wants to add a job
+
+
+<!-- Create Form to add new job -->
+<form name = "vm.jobForm" ng-submit="vm.addNewJob()" ng-if="showForm">
+To add a new Job opening please fill in all the fields below: <br/><br/>
+Title: <input type="text" name="title" required ng-model="vm.newJobTitle"><br/><br/>
+Salary: <input type="text" name="salary" required ng-model="vm.newJobSalary"><br/><br/>
+Description: <input type="text" name= "description" ng-model="vm.newJobDescription"><br/><br/>
+Experience: <input type="text" name="experience" ng-model="vm.newJobExperience"><br/><br/>
+Skills: <input type="text" name="skills" ng-model="vm.newJobSkills"><br/><br/>
+Location Street : <input type="text" name="street" ng-model="vm.newJobStreet">
+zipCode : <input type="text" name="zipCode" ng-model="vm.newJobzipCode"><br/><br/>
+postDate: <input type="text" name="postDate" ng-model="vm.newPostDate"><br/><br/>
+<button type="submit" class="brn-success">Add New Job</button><br/>
+</form>
+
