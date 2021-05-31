@@ -1,0 +1,49 @@
+<h1>{{vm.title}}</h1>
+<!-- Search by Fidget Name : -->
+<!-- <form>
+    <input ng-model="search.title" type = "search" name="search" id="">
+</form> -->
+<label for="search">Search by Title:</label>
+<input type="search" id="search" name="searchTitle" ng-model="vm.newSearchTitle" style="color:black">
+<button class="btn-success" ng-click="vm.searchByTitle()">Search</button></BR></BR>
+ 
+
+<ul>
+    <li ng-repeat="fidget in vm.fidgets | filter:search |orderBy:'title' ">
+        <a ng-href="#fidget/{{fidget._id}}">{{fidget.title}}</a>
+    </li>
+</ul>
+<input type="checkbox" ng-model="showForm">
+To add a new fidget please fill in all the fields below :<br/><br/>
+
+<form name="vm.fidgetForm" ng-submit="vm.addFidget()" ng-if="showForm">
+    
+    <div>
+    <label for="title">Title</label></br>
+    <input type="text" required name = "title" ng-minlength="3" ng-maxlength="13" ng-model="vm.newFidgetTitle">
+</div>
+<span ng-show="vm.fidgetForm.title.$dirty && vm.fidgetForm.title.$invalid">
+    Title requires 3 to 13 character
+</span>
+<div>
+     <label for="price">Price</label></br>
+      <input type="text" required   ng-model="vm.newFidgetPrice">
+    </div><div>
+      <label for="rate">Rate</label></br>
+    <input type="text" required   ng-model="vm.newFidgetRate"></div>
+<div>
+    <label for="company Name">Company Name</label></br>
+     <input type="text" required ng-model="vm.newFidgetCompanyName">
+     </div>
+     <label for="zipCode">Company ZipCode</label></br>
+    <input type="text" name = "zipCode" ng-pattern="/^[0-9]{5}$/"  required ng-model="vm.newCompanyLocation"><br/><br/>
+    <span ng-show="vm.fidgetForm.zipCode.$dirty && vm.fidgetForm.zipCode.$invalid "> Zip Code requires 5 digits </span><br/><br/>
+     <button type="submit" class="btn-success">Add Fidget</button><br/>
+</form>
+
+<div class="container">
+ 
+    <button style="float: left;" ng-hide="vm.offset==0" ng-click="vm.nextPage('prev')" class="btn btn-primary btn-lg">Previous</button>
+    <button style="float: right;" ng-hide="vm.maxCount<=(vm.offset+vm.count)" type="button" ng-click="vm.nextPage('next')" class="btn btn-primary btn-lg">Next</button>
+
+</div>
