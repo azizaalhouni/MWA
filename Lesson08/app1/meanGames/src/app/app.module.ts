@@ -9,6 +9,7 @@ import { GamesListComponent } from './games-list/games-list.component';
 import { OrderPipe } from './order.pipe';
 import { HomePageComponent } from './home-page/home-page.component';
 import {GamesDetailsComponent} from './games-details/games-details.component';
+import { FormsModule } from '@angular/forms';
 
 //Decorator
 @NgModule({
@@ -22,6 +23,7 @@ import {GamesDetailsComponent} from './games-details/games-details.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path:"",

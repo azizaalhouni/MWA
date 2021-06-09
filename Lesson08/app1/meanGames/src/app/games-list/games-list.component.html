@@ -6,29 +6,25 @@
          <!-- {{game._id | order}}<br> -->
         <a routerLink="/game/{{game._id}}">{{game.title}}</a></li>
         </ul>
-    <!-- {{game.title }}<br>{{game.price | currency}}</li> -->
-     
+    <!-- {{game.title }}<br>{{game.price | currency}} -->
 
-    <!-- <li ng-repeat="game in vm.games | orderBy :'title' ">
-        <a ng-href="#game/{{game._id}}">{{game.title}}</a></li>
-</ul> --> 
-
-<form [formGroup]= "checkoutForm"  (ngSubmit)="addGame()">
+<form #userSubmit="ngForm"  class="form-group" (ngSubmit)="addGame(userSubmit)">
     To add a new game please fill in all the fields below: <br/>
 
-    Title: <input type="text" name="title" formControlName="title" required ngModel><br/>
-    Price: <input type="text" name="price" required ngModel><br/>
-    <!-- Year of Publication: <input type="text" name="year" required ng-model="newGameYear"><br/>
-    Rating: <input type="text" name="rating" required ng-model="newGameRating"><br/>
-    Minimum Number of Players: <input type="text" name="minPlayers" ng-pattern="/[0-9]{1,3}" required ng-model="newGameMinPlayers"><br/>
-    <span ng-show="gameForm.minPlayers.$dirty && gameForm.minPlayers.$invalid && gameForm.isSubmitted" style="color:black">Minimum players must be at least 1.</span>
+    Title: <input type="text"  name="title"  required [(ngModel)]="title"/><br/>
+    Price: <input type="text" name="price"  required [(ngModel)]="price"><br/>
+    <!-- Year of Publication: <input type="text" name="year" required ng-model="newGameYear"><br/> -->
+    Rating: <input type="text" name="rating" required [(ngModel)]="rate"><br/>
+    <!-- Minimum Number of Players: <input type="text" name="minPlayers" ng-pattern="/[0-9]{1,3}" required ng-model="newGameMinPlayers"><br/> -->
+    <!-- <span ng-show="gameForm.minPlayers.$dirty && gameForm.minPlayers.$invalid && gameForm.isSubmitted" style="color:black">Minimum players must be at least 1.</span> -->
 
     <BR/>
-    Maximum Number of Players: <input type="text" name="maxPlayers" required ng-model="newGameMaxPlayers"><br/>
-    Minimum Recommended Player Age: <input type="text" name="minAge" required ng-model="newGameMinAge" style="color:black"/><BR/>
+    <!-- Maximum Number of Players: <input type="text" name="maxPlayers" required ng-model="newGameMaxPlayers"><br/> -->
+    <!-- Minimum Recommended Player Age: <input type="text" name="minAge" required ng-model="newGameMinAge" style="color:black"/><BR/> -->
 
-    Designer name: <input type="text" name="designer" required ng-model="newGameDesigner" style="color:black"/><BR/> --> -->
+    <!-- Designer name: <input type="text" name="designer" required ng-model="newGameDesigner" style="color:black"/><BR/> -->
 
      <button type="submit" class="btn-success">Add Game</button><br/>
+     <pre>{{userSubmit.value | json }}</pre>
 
 </form>

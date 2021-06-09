@@ -1,15 +1,18 @@
 //This on has no dependencis on other 
 //has Dependencis on Angular
 import { Component, OnInit } from '@angular/core';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import {FormBuilder} from '@angular/forms';
+import {NgForm} from '@angular/forms';
 
 import {GamesDataService } from "../games-data.service";
 
 
 export class Game{
-  // _id: number =1;
+  _id: number =1;
   title: string="";
   price!:number ; //if we don't want to initialize we can do price!:number
+  // rate!:number;
   // minPlayers!: number;
   // maxPlayers!: number;
   // minAge!: number;
@@ -23,28 +26,19 @@ export class Game{
 })
 //Export
 export class GamesListComponent implements OnInit {
-title: string = "Mean Games";
-//To create an instance
-// game1: Game = {
-//   _id:123,
-//   title: "Game One",
-//   price: 10.99
-
-// }
-// game2: Game = {
-//   _id:125,
-//   title: "Game Two",
-//   price: 20.99
-
-// }
-checkoutForm = this.formBuilder.group({
-  title:"",
-  // price:''
-});
+title: string = "";
+// title:any;
+   price:any;
+   rate:any;
+// checkoutForm = this.formBuilder.group({
+//   title:"",
+//   // price:''
+// });
 games: Game[]=[] ;//= [this.game1, this.game2];
   constructor(
-    private gamesDataService: GamesDataService,
-    private formBuilder: FormBuilder) { }
+    private gamesDataService: GamesDataService){}
+   public createGame!:Game;
+    // private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.getGames();
@@ -60,8 +54,12 @@ games: Game[]=[] ;//= [this.game1, this.game2];
   private handleError(error:any){
     console.log(error);
   }
-   addGame():void{
-    alert("Game Title is : "+ this.checkoutForm.value)
-    // this.games.push({title:this.newGameTitle, price:this.newGamePrice})
+   addGame(form:NgForm){
+     console.log(this.title);
+     let game: any ={
+       title: this.title,
+       price: this.price
+     }
+    this.gamesDataService.creatGame(game).then(response=>this.createGame=response);
   }
 }

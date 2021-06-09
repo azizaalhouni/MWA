@@ -37,20 +37,20 @@ export class GamesDataService {
     
     return this.http.get(url).toPromise().then(this.gotGame).catch(this.handleErrorGame);
   }
-  private gotGame(response: any){
+  private gotGame(response: any): Game{
     return response as Game;
   }
   private handleErrorGame(error: any){
     console.log("Error", error);
     return error;
   }
-  ///Add game
-  // public addGame() : Promise<Game>{
+  //Add game
+   creatGame(addOneGame:any) : Promise<Game>{
    
-  //   const url: string = this.baseURL+"/games";
-    
-  //   return this.http.post(url).toPromise().then(this.gotGame).catch(this.handleErrorGame);
-  // }
+    const url: string = this.baseURL+"/games/";
+    const headers = {'content-type' : 'application/json'}
+    return this.http.post(url,addOneGame,{headers}).toPromise().then(this.gotGame).catch(this.handleErrorGame);
+  }
   // private gotGame(response: any){
   //   return response as Game;
   // }

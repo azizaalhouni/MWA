@@ -1,6 +1,12 @@
 <p>games-details works!</p>
 {{game.title}}
 Price: {{game.price }}<br/>
+Rate:{{game.rate}}<br/>
     <!-- Minimum Player:{{game.minPlayers}}<br/>
     Maximum Players: {{game.maxPlayers}}<br/>
     Minimum Age:{{game.minAge}}<br/> -->
+    <!-- <div ng-if="vm.isLoggedIn()"> -->
+        <form #userSubmit="ngForm" name="deleteFormName" (ngSubmit)="deleteGame()">
+            <button type="submit" class="btn-success">Delete Game</button><br/>
+        </form>
+        <!-- </div> -->
