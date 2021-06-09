@@ -33,5 +33,6 @@ export class GamesDetailsComponent implements OnInit {
   }
 public deleteGame(gameId:any){
 this.gamesDataService.deleteOneGame(gameId).then(response=>this.deletesGame=response);
+// location.reload();
 }
 }
