@@ -13,7 +13,8 @@ export class GamesDetailsComponent implements OnInit {
   gameId!:string;
 
   constructor(private gamesDataService: GamesDataService, private route: ActivatedRoute){} 
-  deleteOneGame!:Game;
+  deletesGame!:Game;
+
   ngOnInit(): void {
     const gameId:string = this.route.snapshot.params.gameId;
     this.getGame(gameId);
@@ -31,6 +32,6 @@ export class GamesDetailsComponent implements OnInit {
     console.log(error);
   }
 public deleteGame(gameId:any){
-this.gamesDataService.deleteOneGame(gameId).then(response=>this.deleteOneGame=response);
+this.gamesDataService.deleteOneGame(gameId).then(response=>this.deletesGame=response);
 }
 }

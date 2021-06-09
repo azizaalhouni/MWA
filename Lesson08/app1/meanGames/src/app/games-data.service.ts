@@ -53,11 +53,11 @@ export class GamesDataService {
   }
   deleteOneGame(gameId:any): Promise<Game>{
     const url: string = this.baseURL+"/games/"+gameId;
-    return this.http.delete(url).toPromise().then(this.gotGame).catch(this.handleErrorGame);
+    return this.http.delete(url).toPromise().then(this.deleteOnce).catch(this.handleErrorGame);
   }
-  // private gotGame(response: any){
-  //   return response as Game;
-  // }
+  private deleteOnce(response: any):Game{
+    return response as Game;
+  }
   // private handleErrorGame(error: any){
   //   console.log("Error", error);
   //   return error;
