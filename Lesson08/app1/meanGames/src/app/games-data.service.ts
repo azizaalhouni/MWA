@@ -51,6 +51,10 @@ export class GamesDataService {
     const headers = {'content-type' : 'application/json'}
     return this.http.post(url,addOneGame,{headers}).toPromise().then(this.gotGame).catch(this.handleErrorGame);
   }
+  deleteOneGame(gameId:any): Promise<Game>{
+    const url: string = this.baseURL+"/games/"+gameId;
+    return this.http.delete(url).toPromise().then(this.gotGame).catch(this.handleErrorGame);
+  }
   // private gotGame(response: any){
   //   return response as Game;
   // }

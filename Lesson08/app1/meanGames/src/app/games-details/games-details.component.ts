@@ -12,10 +12,8 @@ export class GamesDetailsComponent implements OnInit {
   game:Game ={} as Game;
   gameId!:string;
 
-  constructor(private gamesDataService: GamesDataService, private route: ActivatedRoute){
-
-  } 
-
+  constructor(private gamesDataService: GamesDataService, private route: ActivatedRoute){} 
+  deleteOneGame!:Game;
   ngOnInit(): void {
     const gameId:string = this.route.snapshot.params.gameId;
     this.getGame(gameId);
@@ -32,5 +30,7 @@ export class GamesDetailsComponent implements OnInit {
   private handleError(error:any){
     console.log(error);
   }
-
+public deleteGame(gameId:any){
+this.gamesDataService.deleteOneGame(gameId).then(response=>this.deleteOneGame=response);
+}
 }

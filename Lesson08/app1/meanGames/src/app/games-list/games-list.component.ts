@@ -58,8 +58,10 @@ games: Game[]=[] ;//= [this.game1, this.game2];
      console.log(this.title);
      let game: any ={
        title: this.title,
-       price: this.price
+       price: this.price,
+       rate:this.rate
      }
+     console.log(game);
     this.gamesDataService.creatGame(game).then(response=>this.createGame=response);
   }
 }
