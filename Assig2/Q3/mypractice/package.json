@@ -1,0 +1,20 @@
+{
+  "name": "app14",
+  "version": "1.0.0",
+  "description": "This is my MEAN Games Database Driven Application",
+  "main": "app14.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "MEAN Board-Games Database-Driven-Application"
+  ],
+  "author": "Aziza Alhouni",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "mocha": "^8.4.0"
+  }
+}
