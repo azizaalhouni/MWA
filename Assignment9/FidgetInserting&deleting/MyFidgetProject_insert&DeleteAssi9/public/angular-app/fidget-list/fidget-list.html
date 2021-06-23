@@ -1,0 +1,22 @@
+<h1>{{vm.title}}</h1>
+<ul>
+    <li ng-repeat="fidget in vm.fidgets | orderBy:'title'">
+        <a ng-href="#fidget/{{fidget._id}}">{{fidget.title}}</a>
+    </li>
+</ul>
+<form name="vm.fidgetForm" ng-submit="vm.addFidget()">
+    To add a new fidget please fill in all the fields below :<br/><br/>
+     Title : <input type="text" required name = "title" ng-minlength="3" ng-maxlength="13" ng-model="vm.newFidgetTitle">
+     <br/>
+<span ng-show="vm.fidgetForm.title.$dirty && vm.fidgetForm.title.$invalid">
+    Title requires 3 to 13 character
+</span>
+     <br/>
+     Price : <input type="text" required   ng-model="vm.newFidgetPrice"><br/><br/>
+     Rate  : <input type="text" required   ng-model="vm.newFidgetRate"><br/><br/>
+    
+     Company Name : <input type="text" required ng-model="vm.newFidgetCompanyName"><br/><br/>
+     Company ZipCode : <input type="text" name = "zipCode" ng-pattern="/^[0-9]{5}$/"  required ng-model="vm.newCompanyLocation"><br/><br/>
+    <span ng-show="vm.fidgetForm.zipCode.$dirty && vm.fidgetForm.zipCode.$invalid "> Zip Code requires 5 digits </span><br/><br/>
+     <button type="submit" class="btn-success">Add Fidget</button><br/>
+</form>

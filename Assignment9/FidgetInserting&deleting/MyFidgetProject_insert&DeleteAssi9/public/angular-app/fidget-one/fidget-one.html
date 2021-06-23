@@ -1,0 +1,12 @@
+<h1>Info about fidget : {{vm.fidget.title | uppercase}}</h1>
+<p>
+price: {{vm.fidget.price | currency}}<br/>
+Rate: {{vm.fidget.rate }}<br/>
+Company:{{vm.fidget.company.companyName}}<br/>
+Company ZipCode : {{vm.fidget.company.location}}
+
+
+</p>
+<form name="deleteForm" ng-submit="vm.deleteFidget()">
+    <button type="submit" class="btn-success">Delete Fidget</button>
+</form>

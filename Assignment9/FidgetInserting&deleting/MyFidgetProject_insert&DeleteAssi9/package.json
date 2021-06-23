@@ -1,0 +1,33 @@
+{
+  "name": "myfidgetproject",
+  "version": "1.0.0",
+  "description": "MEAN Project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azizaalhouni/MyFidgetProject.git"
+  },
+  "keywords": [
+    "Express",
+    "MEAN",
+    "stack",
+    "node.js",
+    "MongooseDb"
+  ],
+  "author": "Aziza Alhouni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azizaalhouni/MyFidgetProject/issues"
+  },
+  "homepage": "https://github.com/azizaalhouni/MyFidgetProject#readme",
+  "dependencies": {
+    "angular": "^1.4.0",
+    "angular-route": "^1.4.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.10"
+  }
+}
